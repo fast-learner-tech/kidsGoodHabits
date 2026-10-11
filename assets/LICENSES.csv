@@ -1,0 +1,4 @@
+asset,source_url,license,attribution_required,attribution_text,commercial_ok,date_downloaded,notes
+Blender,https://www.blender.org,GPL (output is yours),no,,yes,,"Renders you make belong to you"
+Kokoro-82M TTS,https://huggingface.co/hexgrad/Kokoro-82M,Apache-2.0,no,,yes,,"Check each release's model card"
+Rhubarb Lip Sync,https://github.com/DanielSWolf/rhubarb-lip-sync,MIT,no,,yes,,

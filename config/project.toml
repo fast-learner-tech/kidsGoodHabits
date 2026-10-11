@@ -1,0 +1,25 @@
+[project]
+name = "kidsGoodHabitsCenter"
+fps = 24
+width = 1920
+height = 1080
+made_for_kids = true
+
+[tools]
+# Set these to full paths if the commands are not on your PATH.
+blender = "blender"
+ffmpeg = "ffmpeg"
+rhubarb = "rhubarb"
+
+[render]
+engine = "EEVEE"        # fast, good for stylized look; "CYCLES" for hero shots only
+samples = 64            # EEVEE render samples; 32 for drafts, 96 for finals
+draft_scale = 50        # percent resolution for draft renders
+
+[audio]
+target_lufs = -16       # loudness target for YouTube (-14 to -16 is fine)
+music_duck_db = -14     # music level under dialogue
+tts_voice_narrator = "af_heart"
+tts_voice_child = "af_nicole"
+tts_voice_parent = "am_michael"
+tts_speed = 0.95

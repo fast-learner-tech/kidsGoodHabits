@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+audio/
+frames/
+out/
+*.blend1
+*.blend2
+client_secret*.json
+token.json
+.env
+.DS_Store
+# Large third-party downloads: keep the originals out of git, track assets/LICENSES.csv instead
+assets/_downloads/

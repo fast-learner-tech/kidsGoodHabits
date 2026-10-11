@@ -1,0 +1,37 @@
+{
+  "id": "ep01_brush_teeth",
+  "title": "Pip and the Sparkly Smile",
+  "habit": "brushing teeth morning and night",
+  "target_age": "3-6",
+  "length_seconds_target": 150,
+  "music": { "file": "assets/music/theme.mp3", "volume_db": -16 },
+  "shots": [
+    {
+      "n": 1,
+      "description": "Wide: sunny bedroom, Pip wakes up and stretches. Camera slowly pushes in.",
+      "blend": "scenes/ep01_shot01.blend",
+      "frames": [1, 96],
+      "dialogue": [
+        { "id": "ep01_l01", "voice": "narrator", "at": 0.5, "text": "Good morning, sunshine! Pip is awake, and the day is brand new." }
+      ]
+    },
+    {
+      "n": 2,
+      "description": "Medium: Pip hops to the bathroom, grabs a small toothbrush. Sparkly toothpaste dot.",
+      "blend": "scenes/ep01_shot02.blend",
+      "frames": [1, 72],
+      "dialogue": [
+        { "id": "ep01_l02", "voice": "child", "at": 0.4, "text": "Time to brush my teeth! Up, down, up, down." }
+      ]
+    },
+    {
+      "n": 3,
+      "description": "Close-up: Pip smiles into mirror, teeth sparkle (soft glow, no flashing).",
+      "blend": "scenes/ep01_shot03.blend",
+      "frames": [1, 72],
+      "dialogue": [
+        { "id": "ep01_l03", "voice": "narrator", "at": 0.5, "text": "Brush for two whole minutes. Count with me. One, two, three!" }
+      ]
+    }
+  ]
+}
