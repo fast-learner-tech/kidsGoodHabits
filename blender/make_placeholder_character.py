@@ -11,17 +11,17 @@ import sys
 
 import bpy
 
-# (x scale, z scale) of the mouth for each Rhubarb shape, relative to the rest mouth
+# (x scale, z scale) of the mouth for each Rhubarb shape, relative to the closed rest mouth
 MOUTH_SHAPES = {
-    "A": (1.0, 0.15),   # closed
-    "B": (1.0, 0.35),   # slightly open
-    "C": (1.1, 0.80),   # open
-    "D": (1.2, 1.30),   # wide open
-    "E": (0.75, 0.90),  # rounded O
-    "F": (0.50, 0.60),  # pucker
-    "G": (1.1, 0.30),   # teeth on lip
-    "H": (1.0, 0.70),   # tongue up
-    "X": (1.0, 0.15),   # rest
+    "A": (1.0, 1.0),    # closed
+    "B": (1.0, 2.5),    # slightly open
+    "C": (1.1, 4.0),    # open
+    "D": (1.2, 6.0),    # wide open
+    "E": (0.75, 4.5),   # rounded O
+    "F": (0.50, 3.0),   # pucker
+    "G": (1.1, 2.0),    # teeth on lip
+    "H": (1.0, 3.5),    # tongue up
+    "X": (1.0, 1.0),    # rest
 }
 
 
@@ -39,7 +39,9 @@ def add_sphere(name, loc, scale, mat):
     o = bpy.context.active_object
     o.name = name
     o.scale = scale
-    bpy.ops.object.transform_apply(scale=True)
+    # bake scale only: keeping the location on the object leaves mesh coords centred on the object,
+    # so mouth shape keys scale around the mouth instead of the world origin
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     bpy.ops.object.shade_smooth()
     o.data.materials.append(mat)
     return o
@@ -47,6 +49,9 @@ def add_sphere(name, loc, scale, mat):
 
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
+    # start from an empty scene (the startup file has a cube, camera and light)
+    for o in list(bpy.data.objects):
+        bpy.data.objects.remove(o, do_unlink=True)
     skin = make_material("Skin", (0.80, 0.55, 0.38))
     shirt = make_material("Shirt", (0.95, 0.55, 0.15))
     white = make_material("EyeWhite", (1, 1, 1))
@@ -56,11 +61,14 @@ def main():
     head = add_sphere("Head", (0, 0, 1.45), (0.55, 0.50, 0.50), skin)
     for side, x in (("L", -0.2), ("R", 0.2)):
         e = add_sphere(f"Eye_{side}", (x, -0.42, 1.55), (0.12, 0.06, 0.14), white)
-        add_sphere(f"Pupil_{side}", (x, -0.47, 1.55), (0.06, 0.03, 0.08), dark)
-        e.parent = head
+        p = add_sphere(f"Pupil_{side}", (x, -0.47, 1.55), (0.06, 0.03, 0.08), dark)
+        e.parent = p.parent = head
+    for o in head.children:
+        o.matrix_parent_inverse = head.matrix_world.inverted()
 
-    mouth = add_sphere("Mouth", (0, -0.47, 1.28), (0.14, 0.05, 0.06), dark)
+    mouth = add_sphere("Mouth", (0, -0.47, 1.28), (0.14, 0.05, 0.02), dark)
     mouth.parent = head
+    mouth.matrix_parent_inverse = head.matrix_world.inverted()
 
     mouth.shape_key_add(name="Basis", from_mix=False)
     base = [v.co.copy() for v in mouth.data.vertices]
@@ -68,8 +76,8 @@ def main():
         kb = mouth.shape_key_add(name=f"mouth_{letter}", from_mix=False)
         for i, co in enumerate(base):
             kb.data[i].co.x = co.x * sx
-            kb.data[i].co.z = co.z * sz * 4.0 if letter != "A" and letter != "X" else co.z
-    # mouth_A / mouth_X keep the rest mouth; others are scaled shapes relative to it
+            kb.data[i].co.z = co.z * sz
+    # mouth_A / mouth_X keep the closed rest mouth; others open it around the mouth centre
 
     bpy.ops.object.camera_add(location=(0, -5, 1.2), rotation=(1.5708, 0, 0))
     bpy.context.scene.camera = bpy.context.active_object

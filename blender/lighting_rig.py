@@ -50,20 +50,25 @@ def make_sky(top, horizon):
     nt.links.new(bg.outputs["Background"], out.inputs["Surface"])
 
 
-def main():
-    argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
-    mood = argv[argv.index("--mood") + 1] if "--mood" in argv else "day"
-    key_c, key_w, fill_c, fill_w, sky_top, sky_hor = MOODS[mood]
+def apply(mood):
+    """Create the key/fill/rim lights and sky for a mood (also used by blender/shotlib.py)."""
     from mathutils import Vector
 
+    key_c, key_w, fill_c, fill_w, sky_top, sky_hor = MOODS[mood]
     centre = Vector((0, 0, 1.0))
     area_light("KEY", Vector((4, -5, 5)), centre, key_c, key_w, 4.0)
     area_light("FILL", Vector((-5, -4, 2.5)), centre, fill_c, fill_w, 6.0)
     area_light("RIM", Vector((0, 5, 4)), centre, (1, 1, 1), 400, 3.0)
     make_sky(sky_top, sky_hor)
     print(f"Lighting rig '{mood}' created")
+
+
+def main():
+    argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
+    apply(argv[argv.index("--mood") + 1] if "--mood" in argv else "day")
     if "--save" in argv:
         bpy.ops.wm.save_mainfile()
 
 
-main()
+if __name__ == "__main__":
+    main()

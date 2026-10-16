@@ -1,6 +1,6 @@
 # Story, Dialogue, Voice and Music Prompts
 
-## A. Episode structure (2.5 to 4 minutes, ages 3-6)
+## A. Episode structure (2.5 to 4 minutes, ages 3-8)
 | Time | Beat | Purpose |
 |---|---|---|
 | 0:00 | Cold open | Pip wakes up / starts the day, a tiny problem appears |
@@ -13,7 +13,7 @@
 
 ## B. Prompt to write a script (use with any writing assistant)
 ```
-You are a children's TV writer. Write a 3-minute animated episode script for ages 3-6 called "[TITLE]".
+You are a children's TV writer. Write a 3-minute animated episode script for ages 3-8 called "[TITLE]".
 Habit taught: [HABIT]. Characters: Pip (6), Zuri (6), Tomo (3), Nana Rue (grown-up), Biscuit (pet, no dialogue).
 Rules:
 - Positive tone only: no shaming, yelling, scary moments or punishment.
@@ -21,7 +21,8 @@ Rules:
 - The habit is taught in exactly 3 simple steps, each repeated 3 times.
 - Include 2 moments where a character speaks to the viewer and pauses for 3 seconds.
 - Include a 4-line original rhyming chorus that recaps the 3 steps.
-- Max 12 words per spoken line. Use concrete, simple words.
+- Max 12 words per spoken line. Use concrete, simple words a 3-year-old knows.
+- Ages 3-8: include one simple, true "why" for the habit, said by a grown-up or friend.
 - Output as a table: shot number, location, camera (wide/medium/close), action, dialogue (speaker: line), duration in seconds.
 Total runtime: 170 seconds.
 ```

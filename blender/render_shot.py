@@ -25,6 +25,9 @@ def parse_args():
     p.add_argument("--width", type=int, default=1920)
     p.add_argument("--height", type=int, default=1080)
     p.add_argument("--engine", default="EEVEE", choices=["EEVEE", "CYCLES"])
+    p.add_argument("--bounces", type=int, default=4)
+    p.add_argument("--step", type=int, default=1, help="render every Nth frame (2 = on twos for drafts)")
+    p.add_argument("--no-blur", action="store_true")
     return p.parse_args(argv)
 
 
@@ -48,13 +51,18 @@ def main():
 
     if a.engine == "CYCLES":
         r.engine = "CYCLES"
+        sc.cycles.device = "CPU"  # integrated Intel GPUs cannot run Cycles; CPU + denoise is fast for stylized scenes
         sc.cycles.samples = a.samples
+        sc.cycles.use_adaptive_sampling = True
         sc.cycles.use_denoising = True
+        sc.cycles.max_bounces = a.bounces  # soft stylized lighting needs few bounces
+        r.use_persistent_data = True  # keep the scene in memory between frames
     else:
         r.engine = pick_eevee_id()
         sc.eevee.taa_render_samples = a.samples
 
-    r.use_motion_blur = True
+    r.use_motion_blur = not a.no_blur
+    sc.frame_step = a.step
     r.image_settings.file_format = "PNG"
     r.image_settings.color_mode = "RGB"
     r.image_settings.color_depth = "8"

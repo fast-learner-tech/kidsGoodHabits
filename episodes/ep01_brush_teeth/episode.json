@@ -2,36 +2,790 @@
   "id": "ep01_brush_teeth",
   "title": "Pip and the Sparkly Smile",
   "habit": "brushing teeth morning and night",
-  "target_age": "3-6",
-  "length_seconds_target": 150,
-  "music": { "file": "assets/music/theme.mp3", "volume_db": -16 },
+  "target_age": "3-8",
+  "length_seconds_target": 160,
+  "music": [
+    {
+      "file": "assets/music/theme.mp3",
+      "from_shot": 1,
+      "to_shot": 17,
+      "volume_db": -18,
+      "loop": true,
+      "fade_out": 1.0
+    },
+    {
+      "file": "assets/music/habit_song.wav",
+      "from_shot": 18,
+      "to_shot": 25,
+      "offset": 2.5,
+      "volume_db": -22,
+      "loop": true,
+      "fade_out": 1.0
+    },
+    {
+      "file": "assets/music/habit_song.wav",
+      "from_shot": 26,
+      "to_shot": 29,
+      "volume_db": -11,
+      "fade_out": 1.0
+    },
+    {
+      "file": "assets/music/lullaby.wav",
+      "from_shot": 30,
+      "to_shot": 31,
+      "volume_db": -14,
+      "fade_out": 2.0
+    }
+  ],
   "shots": [
     {
       "n": 1,
-      "description": "Wide: sunny bedroom, Pip wakes up and stretches. Camera slowly pushes in.",
+      "description": "Bedroom morning, wide: Morning sun fills the room. Pip asleep under the quilt, one foot poking out; Biscuit curled on the rug. Slow push in.",
       "blend": "scenes/ep01_shot01.blend",
-      "frames": [1, 96],
+      "frames": [
+        1,
+        116
+      ],
       "dialogue": [
-        { "id": "ep01_l01", "voice": "narrator", "at": 0.5, "text": "Good morning, sunshine! Pip is awake, and the day is brand new." }
+        {
+          "id": "ep01_l01",
+          "voice": "narrator",
+          "at": 0.5,
+          "text": "The sun is up! Biscuit is up! And Pip is..."
+        }
+      ],
+      "sfx": [
+        "soft snore (Pip) after the line"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/snore.wav",
+          "at": 3.9,
+          "volume_db": -10
+        }
       ]
     },
     {
       "n": 2,
-      "description": "Medium: Pip hops to the bathroom, grabs a small toothbrush. Sparkly toothpaste dot.",
+      "description": "Bedroom morning, medium: Biscuit hops onto the bed and nuzzles Pip's cheek. Pip giggles awake.",
       "blend": "scenes/ep01_shot02.blend",
-      "frames": [1, 72],
+      "frames": [
+        1,
+        102
+      ],
       "dialogue": [
-        { "id": "ep01_l02", "voice": "child", "at": 0.4, "text": "Time to brush my teeth! Up, down, up, down." }
+        {
+          "id": "ep01_l02",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Biscuit! Your whiskers tickle!"
+        }
+      ],
+      "sfx": [
+        "nuzzle purr (Biscuit)",
+        "giggle (Pip)"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/purr.wav",
+          "at": 1.0,
+          "volume_db": -12
+        },
+        {
+          "file": "assets/sfx/giggle_pip.wav",
+          "at": 3.39,
+          "volume_db": -6
+        }
       ]
     },
     {
       "n": 3,
-      "description": "Close-up: Pip smiles into mirror, teeth sparkle (soft glow, no flashing).",
+      "description": "Bedroom morning, close: Pip stretches, yawns, then smacks lips and makes a puzzled face.",
       "blend": "scenes/ep01_shot03.blend",
-      "frames": [1, 72],
+      "frames": [
+        1,
+        166
+      ],
       "dialogue": [
-        { "id": "ep01_l03", "voice": "narrator", "at": 0.5, "text": "Brush for two whole minutes. Count with me. One, two, three!" }
+        {
+          "id": "ep01_l03",
+          "voice": "pip",
+          "at": 1.6,
+          "text": "Hmm. My teeth feel fuzzy. Like a sweater!"
+        }
+      ],
+      "sfx": [
+        "yawn",
+        "lip smack"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/yawn_pip.wav",
+          "at": 0.25,
+          "volume_db": -6
+        },
+        {
+          "file": "assets/sfx/lip_smack.wav",
+          "at": 1.17,
+          "volume_db": -8
+        },
+        {
+          "file": "assets/sfx/lip_smack.wav",
+          "at": 1.3,
+          "volume_db": -8
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "description": "Bedroom morning, close: Biscuit tilts head. Camera eases toward the viewer.",
+      "blend": "scenes/ep01_shot04.blend",
+      "frames": [
+        1,
+        118
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l04",
+          "voice": "narrator",
+          "at": 0.5,
+          "text": "Fuzzy teeth? Do your teeth ever feel fuzzy too?"
+        }
+      ],
+      "sfx": [
+        "soft 'mew?' (Biscuit)"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/mew.wav",
+          "at": 0.55,
+          "volume_db": -6
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "description": "Bedroom morning, wide: Pip springs up and strikes a pose; Biscuit bounces behind. Theme sting plays.",
+      "blend": "scenes/ep01_shot05.blend",
+      "frames": [
+        1,
+        122
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l05",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "I know! It's Sparkly Smile time!"
+        }
+      ],
+      "sfx": [
+        "theme sting"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/sting.wav",
+          "at": 1.69,
+          "volume_db": -8
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "description": "Bathroom, wide: Tomo already on the step stool, hugging the toothpaste tube. Nana Rue folding towels nearby.",
+      "blend": "scenes/ep01_shot06.blend",
+      "frames": [
+        1,
+        98
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l06",
+          "voice": "tomo",
+          "at": 0.5,
+          "text": "Me first! Me brush!"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "description": "Bathroom, close: Tomo squeezes. A HUGE toothpaste mountain wobbles, then flops over. Biscuit's eyes go wide.",
+      "blend": "scenes/ep01_shot07.blend",
+      "frames": [
+        1,
+        108
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l07",
+          "voice": "tomo",
+          "at": 0.5,
+          "text": "Uh-oh. Toothpaste mountain!"
+        }
+      ],
+      "sfx": [
+        "squish",
+        "soft flop"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/squish.wav",
+          "at": 0.42,
+          "volume_db": -8
+        },
+        {
+          "file": "assets/sfx/flop.wav",
+          "at": 2.63,
+          "volume_db": -6
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "description": "Bathroom, medium: Pip scrubs super fast for two seconds, little foam flecks flying.",
+      "blend": "scenes/ep01_shot08.blend",
+      "frames": [
+        1,
+        121
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l08",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Swishy-swish... done! Speedy-fast!"
+        }
+      ],
+      "sfx": [
+        "fast brushing"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/brush_fast.wav",
+          "at": 0.15,
+          "volume_db": -12
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "description": "Bathroom, medium: Nana Rue kneels down with a warm laugh.",
+      "blend": "scenes/ep01_shot09.blend",
+      "frames": [
+        1,
+        132
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l09",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "A mountain and a race car! Let's slow down together."
+        }
+      ],
+      "sfx": [
+        "warm laugh (Nana Rue)"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/laugh_nana.wav",
+          "at": 4.65,
+          "volume_db": -8
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "description": "Bathroom, close: Nana Rue explains with a gentle sweeping hand gesture.",
+      "blend": "scenes/ep01_shot10.blend",
+      "frames": [
+        1,
+        120
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l10",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "Brushing sweeps away germs and bits of food."
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "description": "Bathroom, close: Nana Rue taps her own smile.",
+      "blend": "scenes/ep01_shot11.blend",
+      "frames": [
+        1,
+        125
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l11",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "That keeps our teeth strong and our smiles happy."
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "description": "Bathroom, medium: Pip and Tomo nod eagerly, brushes held up.",
+      "blend": "scenes/ep01_shot12.blend",
+      "frames": [
+        1,
+        137
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l12",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Strong teeth! Show us, please, Nana Rue!"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "description": "Bathroom, close-up on brush: Nana Rue puts a pea-sized dot on a brush.",
+      "blend": "scenes/ep01_shot13.blend",
+      "frames": [
+        1,
+        143
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l13",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "Step one: a tiny dot of toothpaste. As small as a pea."
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "description": "Bathroom, medium: Tomo (helped by Nana Rue) and Pip each add a tiny dot, then hold the brushes up proudly.",
+      "blend": "scenes/ep01_shot14.blend",
+      "frames": [
+        1,
+        132
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l14",
+          "voice": "tomo",
+          "at": 0.5,
+          "text": "Tiny dot!"
+        },
+        {
+          "id": "ep01_l15",
+          "voice": "pip",
+          "at": 2.73,
+          "text": "Tiny dot!"
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "description": "Bathroom, medium: Nana Rue guides Pip's hand in small circles.",
+      "blend": "scenes/ep01_shot15.blend",
+      "frames": [
+        1,
+        146
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l16",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "Step two: little circles. Fronts, backs and chewing tops."
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "description": "Bathroom, close: Pip brushes: fronts, then backs, then chewing tops.",
+      "blend": "scenes/ep01_shot16.blend",
+      "frames": [
+        1,
+        107
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l17",
+          "voice": "narrator",
+          "at": 0.5,
+          "text": "Fronts... backs... and the chewing tops!"
+        }
+      ],
+      "sfx": [
+        "soft crunch on 'tops'"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/crunch.wav",
+          "at": 3.07,
+          "volume_db": -8
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "description": "Bathroom, medium: Nana Rue turns over a small sand timer on the shelf.",
+      "blend": "scenes/ep01_shot17.blend",
+      "frames": [
+        1,
+        129
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l18",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "Step three: brush for two whole minutes. Then spit!"
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "description": "Bathroom, close: Sand trickles in the timer, soft glow. The brushing-song melody starts quietly. Music only.",
+      "blend": "scenes/ep01_shot18.blend",
+      "frames": [
+        1,
+        72
+      ],
+      "dialogue": [],
+      "sfx": [
+        "habit-song melody, quiet"
+      ]
+    },
+    {
+      "n": 19,
+      "description": "Bathroom, close, Pip to camera: Pip turns to the viewer and brushes the air. Hold 3 seconds for the viewer.",
+      "blend": "scenes/ep01_shot19.blend",
+      "frames": [
+        1,
+        216
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l19",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Can you brush the air with me? Little circles!"
+        }
+      ],
+      "viewer_pause_seconds": 3
+    },
+    {
+      "n": 20,
+      "description": "Bathroom, wide: All brushing; Nana Rue helps Tomo. Biscuit's tail swishes in time. Gentle time-lapse (light moves across the floor).",
+      "blend": "scenes/ep01_shot20.blend",
+      "frames": [
+        1,
+        114
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l20",
+          "voice": "narrator",
+          "at": 0.5,
+          "text": "Keep going! Fronts, backs and chewing tops."
+        }
+      ]
+    },
+    {
+      "n": 21,
+      "description": "Bathroom, close: Tomo's foamy smile; a little bubble floats and pops on Biscuit's nose. Biscuit does a tiny sneeze.",
+      "blend": "scenes/ep01_shot21.blend",
+      "frames": [
+        1,
+        106
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l21",
+          "voice": "tomo",
+          "at": 0.5,
+          "text": "Bubbles! Bless you, Biscuit!"
+        }
+      ],
+      "sfx": [
+        "bubble pop",
+        "tiny sneeze (Biscuit)",
+        "giggles (Tomo)"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/bubble_pop.wav",
+          "at": 2.25,
+          "volume_db": -6
+        },
+        {
+          "file": "assets/sfx/sneeze_biscuit.wav",
+          "at": 2.35,
+          "volume_db": -6
+        },
+        {
+          "file": "assets/sfx/giggle_tomo.wav",
+          "at": 3.46,
+          "volume_db": -6
+        }
+      ]
+    },
+    {
+      "n": 22,
+      "description": "Bathroom, medium: Timer runs out with a soft chime.",
+      "blend": "scenes/ep01_shot22.blend",
+      "frames": [
+        1,
+        114
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l22",
+          "voice": "nana_rue",
+          "at": 0.5,
+          "text": "Two whole minutes! Now spit it in the sink."
+        }
+      ],
+      "sfx": [
+        "soft chime"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/chime.wav",
+          "at": 0.1,
+          "volume_db": -8
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "description": "Bathroom, medium: Pip and Tomo spit at the same time. Biscuit's ears twitch.",
+      "blend": "scenes/ep01_shot23.blend",
+      "frames": [
+        1,
+        110
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l23a",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Ptooey!"
+        },
+        {
+          "id": "ep01_l23b",
+          "voice": "tomo",
+          "at": 2.04,
+          "text": "Ptooey!"
+        }
+      ],
+      "sfx": [
+        "spit"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/spit.wav",
+          "at": 0.85,
+          "volume_db": -10
+        },
+        {
+          "file": "assets/sfx/spit.wav",
+          "at": 2.39,
+          "volume_db": -10
+        }
+      ]
+    },
+    {
+      "n": 24,
+      "description": "Bathroom, close-up mirror: Pip runs tongue over teeth, then beams in the mirror; teeth gleam (soft glow, no flashing).",
+      "blend": "scenes/ep01_shot24.blend",
+      "frames": [
+        1,
+        145
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l24",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Not fuzzy anymore! Smooth and sparkly!"
+        }
+      ],
+      "sfx": [
+        "sparkle"
+      ],
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/sparkle.wav",
+          "at": 4.76,
+          "volume_db": -8
+        }
+      ]
+    },
+    {
+      "n": 25,
+      "description": "Bathroom, close, Pip to camera: Pip grins at the viewer. Hold 3 seconds for the viewer.",
+      "blend": "scenes/ep01_shot25.blend",
+      "frames": [
+        1,
+        204
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l25",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Now show me your biggest sparkly smile!"
+        }
+      ],
+      "viewer_pause_seconds": 3
+    },
+    {
+      "n": 26,
+      "description": "Bathroom, wide: Song begins: everyone sways; Pip leads.",
+      "blend": "scenes/ep01_shot26.blend",
+      "frames": [
+        1,
+        180
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l26",
+          "voice": "pip",
+          "at": 2.55,
+          "text": "A tiny dot of toothpaste, as tiny as a pea,",
+          "chant_bars": 2
+        }
+      ],
+      "song": {
+        "bars": 3,
+        "line_bar": 1
+      }
+    },
+    {
+      "n": 27,
+      "description": "Bathroom, medium: Pip and Tomo brush in time, little circles.",
+      "blend": "scenes/ep01_shot27.blend",
+      "frames": [
+        1,
+        120
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l27",
+          "voice": "tomo",
+          "at": 0.05,
+          "text": "Little circles, fronts and backs, and tops for you and me!",
+          "chant_bars": 2
+        }
+      ],
+      "song": {
+        "bars": 2,
+        "line_bar": 0
+      }
+    },
+    {
+      "n": 28,
+      "description": "Bathroom, close: Sand timer flips; Biscuit spins in a happy circle.",
+      "blend": "scenes/ep01_shot28.blend",
+      "frames": [
+        1,
+        120
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l28",
+          "voice": "nana_rue",
+          "at": 0.05,
+          "text": "Brush for two whole minutes, then spit it out...",
+          "chant_bars": 2
+        }
+      ],
+      "sfx": [
+        "happy purr (Biscuit)"
+      ],
+      "song": {
+        "bars": 2,
+        "line_bar": 0
+      },
+      "sfx_cues": [
+        {
+          "file": "assets/sfx/purr.wav",
+          "at": 2.5,
+          "volume_db": -12
+        }
+      ]
+    },
+    {
+      "n": 29,
+      "description": "Bathroom, wide: Everyone's sparkly smile pose on the last word.",
+      "blend": "scenes/ep01_shot29.blend",
+      "frames": [
+        1,
+        180
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l29",
+          "voice": "pip",
+          "at": 0.05,
+          "text": "Ptoo! Morning and at bedtime, sparkly smiles for you!",
+          "chant_bars": 2
+        }
+      ],
+      "song": {
+        "bars": 3,
+        "line_bar": 0
+      }
+    },
+    {
+      "n": 30,
+      "description": "Bedroom night, medium: Moon in the window. Pip in pyjamas holds up a clean toothbrush and winks.",
+      "blend": "scenes/ep01_shot30.blend",
+      "frames": [
+        1,
+        153
+      ],
+      "dialogue": [
+        {
+          "id": "ep01_l30",
+          "voice": "pip",
+          "at": 0.5,
+          "text": "Brushed again! Morning and night. See you next time!"
+        }
+      ]
+    },
+    {
+      "n": 31,
+      "description": "Bedroom night, wide: Pip yawns and snuggles in; Biscuit curls up. Lamp dims gently. Soft lullaby version of the theme. Fade out. Music only.",
+      "blend": "scenes/ep01_shot31.blend",
+      "frames": [
+        1,
+        120
+      ],
+      "dialogue": [],
+      "sfx": [
+        "lullaby theme"
       ]
     }
-  ]
+  ],
+  "script_version": "v2",
+  "song": {
+    "bpm": 96,
+    "frames_per_bar": 60,
+    "shots": [
+      26,
+      27,
+      28,
+      29
+    ],
+    "chant": true
+  },
+  "fade": {
+    "in": 0.5,
+    "out": 1.5
+  }
 }

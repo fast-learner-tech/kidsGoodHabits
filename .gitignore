@@ -12,3 +12,5 @@ token.json
 .DS_Store
 # Large third-party downloads: keep the originals out of git, track assets/LICENSES.csv instead
 assets/_downloads/
+# Generated shot files (rebuild with blender/build_shot.py)
+scenes/ep*_shot*.blend

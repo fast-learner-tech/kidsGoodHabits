@@ -5,6 +5,8 @@ Workflow: generate concept art with these prompts, pick one, then sculpt/model i
 
 For consistency, always generate a **turnaround sheet** first, then an **expression sheet**, then lock the design.
 
+**Locked designs:** the approved concept art for all five characters is in `assets/characters/concepts/` (made with Canva Pro, logged in `assets/LICENSES.csv`). `blender/build_characters.py` builds the 3D cast from it.
+
 ---
 
 ## 1. Pip (lead, about 6 years old)
@@ -51,12 +53,12 @@ loose bun, round glasses, wearing a soft coral cardigan over a cream top and com
 relaxed standing pose
 ```
 
-## 5. Biscuit (pet companion, no specific species)
-Round fluffy creature that reacts with sounds, no dialogue; gives comic relief.
+## 5. Biscuit (pet kitten)
+Fluffy kitten that reacts with sounds (mews, purrs), no dialogue; gives comic relief.
 ```
-[STYLE BLOCK], a small round fluffy creature named Biscuit, cream and caramel fur, floppy ears, tiny stubby
-legs, big shiny black eyes, a little curly tail, ambiguous species between a puppy and a plush toy, soft and
-huggable, cute, 3/4 view
+[STYLE BLOCK], a small fluffy orange tabby kitten named Biscuit, cream-white chest, muzzle and paws, pink nose
+and pink inner ears, big shiny brown eyes, a mint-green collar with a little gold bell, a fluffy curled tail,
+sitting, soft and huggable, cute, 3/4 view
 ```
 
 ## 6. Pop-up helpers (props with faces, for habit explanations)

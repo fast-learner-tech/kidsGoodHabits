@@ -12,9 +12,13 @@ ffmpeg = "ffmpeg"
 rhubarb = "rhubarb"
 
 [render]
-engine = "EEVEE"        # fast, good for stylized look; "CYCLES" for hero shots only
-samples = 64            # EEVEE render samples; 32 for drafts, 96 for finals
-draft_scale = 50        # percent resolution for draft renders
+engine = "CYCLES"       # CPU Cycles: ~7 s per draft frame on this Intel Mac; EEVEE's shadows took ~155 s on its integrated GPU
+samples = 64            # render samples for finals (drafts: draft_samples); denoising is on
+draft_scale = 40        # percent resolution for draft renders (768x432)
+draft_samples = 8       # denoised: enough for a review draft
+draft_bounces = 2
+draft_step = 2          # draft renders every 2nd frame and holds it ("on twos"); finals render every frame
+bounces = 4
 
 [audio]
 target_lufs = -16       # loudness target for YouTube (-14 to -16 is fine)
@@ -23,3 +27,13 @@ tts_voice_narrator = "af_heart"
 tts_voice_child = "af_nicole"
 tts_voice_parent = "am_michael"
 tts_speed = 0.95
+
+# Per-character voices (see prompts/04_story_dialogue_music.md, "Voice casting").
+# Use these names as "voice" in episode.json. semitones > 0 raises the pitch for child-like voices.
+[audio.cast]
+narrator = { voice = "af_heart", speed = 0.95, semitones = 0 }
+pip = { voice = "af_nicole", speed = 1.0, semitones = 2 }
+zuri = { voice = "af_bella", speed = 1.0, semitones = 0 }
+tomo = { voice = "af_nicole", speed = 0.9, semitones = 5 }
+nana_rue = { voice = "bf_emma", speed = 0.9, semitones = 0 }
+grownup = { voice = "am_michael", speed = 0.95, semitones = 0 }

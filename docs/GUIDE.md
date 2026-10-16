@@ -69,7 +69,7 @@ Keep every third-party asset listed in `assets/LICENSES.csv` the day you downloa
 ## 3. Phase 1: Concept, audience and brand (1-2 days)
 
 1. **Decide the promise:** "Short, joyful 3-minute stories that help children build one good habit at a time."
-2. **Target ages:** 3-6. Everything (words, pace, visuals) follows from this.
+2. **Target ages:** 3-8. Write so a 3-year-old can follow every line, and give older viewers a little more: one simple "why" behind the habit (e.g. brushing cleans away the germs and bits of food that can hurt our teeth). Keep every fact true, even when simple. Everything (words, pace, visuals) follows from this.
 3. **Pick the first 10 habits** (one episode each): brushing teeth, washing hands, bedtime, eating vegetables, tidying toys, saying please and thank you, sharing, drinking water, road/home safety basics, getting dressed.
 4. **Write the style bible:** `prompts/01_style_bible.md` already defines look, color script, camera rules and inclusivity rules. Customize it and treat it as law.
 5. **Name and brand:** channel name, 15-second theme tune, a logo (make it in Blender or Inkscape, original only).

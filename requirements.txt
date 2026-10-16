@@ -3,6 +3,11 @@ kokoro>=0.9.2          # Apache-2.0 TTS (82M params, runs on CPU)
 soundfile>=0.12
 numpy>=1.26
 
+# Intel Macs: PyTorch stops at 2.2.2 there, which needs NumPy 1.x and Transformers 4.x.
+# Kokoro also needs Python 3.10-3.12 (create the venv with python3.12).
+numpy<2; sys_platform == "darwin" and platform_machine == "x86_64"
+transformers<5; sys_platform == "darwin" and platform_machine == "x86_64"
+
 # Optional: YouTube API upload (manual upload via YouTube Studio works without these)
 google-api-python-client>=2.100
 google-auth-oauthlib>=1.2

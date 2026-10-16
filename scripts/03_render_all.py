@@ -20,8 +20,11 @@ cfg = tomllib.loads((ROOT / "config" / "project.toml").read_text())
 
 def main(episode_path: str, draft: bool) -> None:
     ep = json.loads(Path(episode_path).read_text())
-    samples = 32 if draft else cfg["render"]["samples"]
-    scale = cfg["render"]["draft_scale"] if draft else 100
+    rc = cfg["render"]
+    samples = rc.get("draft_samples", 32) if draft else rc["samples"]
+    scale = rc["draft_scale"] if draft else 100
+    step = rc.get("draft_step", 1) if draft else 1
+    bounces = rc.get("draft_bounces", 4) if draft else rc.get("bounces", 4)
     for shot in ep["shots"]:
         blend = ROOT / shot["blend"]
         if not blend.exists():
@@ -36,10 +39,24 @@ def main(episode_path: str, draft: bool) -> None:
             "--out", str(out) + "/", "--samples", str(samples), "--scale", str(scale),
             "--fps", str(cfg["project"]["fps"]),
             "--width", str(cfg["project"]["width"]), "--height", str(cfg["project"]["height"]),
-            "--engine", cfg["render"]["engine"],
-        ]
+            "--engine", cfg["render"]["engine"], "--bounces", str(bounces), "--step", str(step),
+        ] + (["--no-blur"] if draft else [])
         print(">>", " ".join(cmd))
         subprocess.run(cmd, check=True)
+        if step > 1:
+            hold_frames(out, shot["frames"][0], shot["frames"][1])
+
+
+def hold_frames(folder: Path, first: int, last: int) -> None:
+    """After an 'on twos' render, copy each rendered frame into the gap after it (complete sequence for FFmpeg)."""
+    import shutil
+    prev = None
+    for f in range(first, last + 1):
+        png = folder / f"{f:04d}.png"
+        if png.exists() and png.stat().st_size > 0:
+            prev = png
+        elif prev is not None:
+            shutil.copyfile(prev, png)
 
 
 if __name__ == "__main__":
